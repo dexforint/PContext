@@ -1,7 +1,7 @@
 # PContext
 
 <p align="center">
-  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/assets/logo-small.png?raw=true" alt="PContext Logo"/>
+  <img src="https://github.com/dexforint/PContext/blob/main/assets/logo-small.png?raw=true" alt="PContext Logo"/>
 </p>
 
 ---
