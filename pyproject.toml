@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcontext"
+version = "0.1.0"
+description = "PContext: запуск пользовательских Python-скриптов из контекстного меню Windows/Linux с изолированными окружениями и авто-открытием результатов."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "PContext Authors" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows :: Windows 11",
+  "Operating System :: POSIX :: Linux",
+  "Intended Audience :: Developers",
+  "Topic :: Utilities",
+]
+
+# Базовые зависимости делаем минимальными, всё остальное — опциональные extras
+dependencies = [
+  # намеренно пусто — все опционально
+]
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=6.0"]
+watchdog = ["watchdog>=3.0"]
+psutil = ["psutil>=5.9"]
+magic = [
+  "python-magic>=0.4; sys_platform != 'win32'",
+  "python-magic-bin>=0.4; sys_platform == 'win32'",
+]
+gui = ["PySide6>=6.5"]
+# Упрощенный «полный» профиль (опционально)
+full = [
+  "PyYAML>=6.0",
+  "watchdog>=3.0",
+  "psutil>=5.9",
+  "PySide6>=6.5",
+  "python-magic>=0.4; sys_platform != 'win32'",
+  "python-magic-bin>=0.4; sys_platform == 'win32'",
+]
+
+[project.urls]
+Homepage = "https://example.com/pcontext"
+Repository = "https://example.com/pcontext/repo"
+
+[project.scripts]
+pcontext = "pcontext.cli.main:main"
+pcontext-cli = "pcontext.cli.launcher:main"
+pcontextd = "pcontext.cli.daemonctl:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pcontext*"]
+
+[tool.setuptools.package-data]
+# Включаем статические ресурсы (иконки и т.п.)
+pcontext = [
+  "resources/**/*.*",
+]
