@@ -1,6 +1,8 @@
 # PContext
 
-![](assets/logo.png)
+<p align="center">
+  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/assets/logo-small.png?raw=true" alt="PContext Logo"/>
+</p>
 
 ---
 
